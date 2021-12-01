@@ -6,12 +6,12 @@ from django.utils.crypto import get_random_string
 
 class Url(models.Model):
 
-    short_url = models.CharField(max_length=6)
-    original_url = models.CharField(max_length=1023)
+    short_url = models.CharField(max_length=6, default='')
+    original_url = models.URLField("URL", unique=True, default='')
 
-    def make_url_small(self):
-        self.short_url = 'random number'
-
+    def make_url_small():
+        short_url = get_random_string(length=6)    
+        return short_url    
 
     def __str__(self):
         return f'The shorter url is: {self.short_url}'

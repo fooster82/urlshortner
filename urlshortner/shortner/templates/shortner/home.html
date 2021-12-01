@@ -7,4 +7,7 @@
         {{ form.as_p }}
         <input type="submit" value="Add url">
     </form>
+
+    <p>Shortened Url is: </p>
+    <a target='_blank' href="{{url.original_url}}">{{ request.get_host }}/shortner/{{ url.short_url }}</a>
 {% endblock content %}
