@@ -6,10 +6,11 @@ from .forms import SubmitUrl
 # Create your views here.
 def home(req):
     if req.method == 'POST':
-        form = SubmitUrl(req.POST)
-        if form.is_valid():
-            short_url = form.save()
-            return redirect('url-show', short_url=short_url)
+        url = SubmitUrl(req.POST)
+        if url.is_valid():
+            url.short_url = Url.make_url_small()
+            data = url.save()            
+            return redirect('shortner-home', data)
     else:
         form = SubmitUrl()
     data = {'form': form}     

@@ -5,4 +5,5 @@ from .models import Url
 class SubmitUrl(forms.ModelForm):
     class Meta:
         model = Url
-        fields = ['original_url']
+        fields = ['original_url', 'short_url']
+        widgets = {'short_url': forms.HiddenInput()}
