@@ -1,13 +1,26 @@
-{% extends "shortner/layout.html" %}
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Road+Rage&display=swap" rel="stylesheet"> 
+    <title>Url Shortner</title>
+</head>
+<body>
 {% block content %}
-    <h1>Enter your Url here to have it shortend!</h1>
-    <form method="post">
+    <h1 id='greeting'>Enter your Url here to have it shortened!</h1>
+    <form id="url-form" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Add url">
+        <input id="submit-btn" type="submit" value="Shrink!">
     </form>
 
-    <p>Shortened Url is: </p>
-    <a target='_blank' href="{{url.original_url}}">{{ request.get_host }}/shortner/{{ url.short_url }}</a>
+    {% if url.short_url %}
+        <p id="url-opener">Shortened Url is: </p>
+        <a id="shortened-url" target='_blank' href="{{url.original_url}}">{{ request.get_host }}/shortner/{{ url.short_url }}</a>
+    {% endif %}
 {% endblock content %}
+</body>
+</html>

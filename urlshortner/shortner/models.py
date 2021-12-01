@@ -14,4 +14,4 @@ class Url(models.Model):
         return short_url    
 
     def __str__(self):
-        return f'The shorter url is: {self.short_url}'
+        return f'The shorter url token is: {self.short_url}'
