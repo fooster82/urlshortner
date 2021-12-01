@@ -21,7 +21,7 @@
 
     {% if url.short_url %}
         <p id="url-opener">Shortened Url is: </p>
-        <a id="shortened-url" target='_blank' href="{{url.original_url}}">{{ request.get_host }}/shortner/{{ url.short_url }}</a>
+        <a id="shortened-url" target='_blank' href="{{url.original_url}}">{{ request.get_host }}/shrinker/{{ url.short_url }}</a>
     {% endif %}
 {% endblock content %}
 </body>

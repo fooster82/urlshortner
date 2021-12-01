@@ -18,4 +18,5 @@
 
 - Run the app with 'python manage.py runserver' then navigate to localhost:8000
 - Home page will load from there with the url shortner that will render the shortened link once a url is submitted 
+- Each link is then available at localhost:8000/shrinker/<generated token>
 
