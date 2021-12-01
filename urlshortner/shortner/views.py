@@ -25,9 +25,13 @@ def home(req):
     return render(req, 'shortner/home.html', data)
 
 def show(req, short_url):
-    actual_url = Url.objects.filter(short_url=short_url)[0]
-    return redirect(actual_url.original_url)
+    try:
+        actual_url = Url.objects.filter(short_url=short_url)[0]
+        return redirect(actual_url.original_url)
+    except:
+        form = SubmitUrl()
+        data = {'form': form}     
+        return render(req, 'shortner/home.html', data)
 
-def not_found_404(req, exception):
-    data = { 'err': exception }
-    return render(req, 'shortner/home.html', data)
+def handle_500(req):
+    return render(req, 'shortner/home.html')
