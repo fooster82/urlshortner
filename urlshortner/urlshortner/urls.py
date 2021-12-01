@@ -21,5 +21,3 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('shortner.urls'))
 ]
-
-# handler500 = 'shortner.views.handle_500'

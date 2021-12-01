@@ -32,6 +32,3 @@ def show(req, short_url):
         form = SubmitUrl()
         data = {'form': form}     
         return render(req, 'shortner/home.html', data)
-
-def handle_500(req):
-    return render(req, 'shortner/home.html')
